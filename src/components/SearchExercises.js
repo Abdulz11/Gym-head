@@ -13,7 +13,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
         exerciseOptions
       );
-
+      if (!bodyPartsData.length > 0) return;
       setBodyParts(["all", ...bodyPartsData]);
       console.log(bodyParts);
     };
@@ -87,12 +87,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         </Button>
       </Box>
       <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
-        <HorizontalScrollbar
-          data={bodyParts}
-          bodyParts
-          setBodyPart={setBodyPart}
-          bodyPart={bodyPart}
-        />
+        {bodyParts.length > 0 && (
+          <HorizontalScrollbar
+            data={bodyParts}
+            bodyParts
+            setBodyPart={setBodyPart}
+            bodyPart={bodyPart}
+          />
+        )}
       </Box>
     </Stack>
   );

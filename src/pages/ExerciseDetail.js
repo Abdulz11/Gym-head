@@ -14,9 +14,6 @@ const ExerciseDetail = () => {
   const [equipmentExercises, setEquipmentExercises] = useState([]);
   const { id } = useParams();
 
-  // console.log("targetMuscleExercises", targetMuscleExercises);
-  // console.log("equipmentExercises", equipmentExercises);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 

@@ -18,14 +18,14 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
           "https://exercisedb.p.rapidapi.com/exercises",
           exerciseOptions
         );
-        console.log(exercisesData);
+        // console.log(exercisesData);
       } else {
         exercisesData = await fetchData(
           `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
           exerciseOptions
         );
       }
-
+      if (!exercisesData.length > 0) return;
       setExercises(exercisesData);
     };
 
